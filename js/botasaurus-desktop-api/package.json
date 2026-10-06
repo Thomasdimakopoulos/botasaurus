@@ -43,9 +43,9 @@
     "!dist/*.tsbuildinfo"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:node && npm run build:browser",
-    "build-mv-maps": "npm run build && mv -f ~/Documents/grow/botasaurus/js/botasaurus-desktop-api/dist/* ~/Documents/playground/my-project-name/node_modules/botasaurus-desktop-api/dist/",
-    "build-dev": "nodemon  --watch \"src/**/*.ts\"  --exec \"npm run build-mv\"",
+    "build": "node init && npm run clean && npm run build:node && npm run build:browser",
+    "build-mv-maps": "node init && npm run build && mv -f ~/Documents/grow/botasaurus/js/botasaurus-desktop-api/dist/* ~/Documents/playground/my-project-name/node_modules/botasaurus-desktop-api/dist/",
+    "build-dev": "node init && nodemon  --watch \"src/**/*.ts\"  --exec \"npm run build-mv\"",
     "clean-install": "rm -rf dist/ node_modules/ package-lock.json yarn.lock .next/* && npm install",
     "prepublishOnly": "npm run build",
     "upload": "python3 increment_version.py && rm -rf dist/ && npm publish",
@@ -57,8 +57,8 @@
     "tsc-check-tests": "tsc --noEmit --project test/tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "build:node": "tsc",
-    "build:browser": "rsbuild build"
+    "build:node": "node init && tsc",
+    "build:browser": "node init && rsbuild build"
   },
   "dependencies": {
     "axios": "^1.6.7",
