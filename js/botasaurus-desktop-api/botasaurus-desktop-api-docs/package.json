@@ -27,9 +27,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "PUBLIC_URL=https://botasaurus-api.omkar.cloud/ react-scripts build && rm -f ./build/static/js/*.map ./build/asset-manifest.json",
-    "build-dev": "react-scripts build",
+    "dev": "node init && react-scripts start",
+    "build": "node init && PUBLIC_URL=https://botasaurus-api.omkar.cloud/ react-scripts build && rm -f ./build/static/js/*.map ./build/asset-manifest.json",
+    "build-dev": "node init && react-scripts build",
     "test": "react-scripts test",
     "update": "npm update --legacy-peer-deps botasaurus-controls",
     "eject": "react-scripts eject",
